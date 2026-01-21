@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ln -s $(which $1) "/home/alvin/.scripts/main_apps/$2"

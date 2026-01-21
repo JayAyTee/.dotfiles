@@ -1,0 +1,7 @@
+#!/bin/bash
+
+glob=""
+while read p; do
+  glob="${glob}${p}|";
+done <~/hiddeninhome
+echo ${glob::-1}

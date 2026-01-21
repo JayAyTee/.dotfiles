@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "No rice name specified! usage: changerice {ricename}"
+elif [[ "$1" == "list" || "$1" == "ls" ]]; then
+  echo "Valid rice names:"
+  echo "$(ls -1 variants/)"
+elif [ ! -d "variants/$1" ]; then
+  echo "Rice \"$1\" doesnt seem to exist :( Try listing valid rices with \"changerice list\""
+else
+  rm sway
+  ln -s variants/$1/sway sway;
+  if [ ! $? == 0 ]; then
+    echo "Unexpected error when copying sway dir, please check it exists manually!";
+    exit 1;
+  fi
+  rm waybar
+  ln -s variants/$1/waybar waybar;
+  if [ ! $? == 0 ]; then
+    echo "Unexpected error when copying waybar dir, please check it exists manually!";
+    exit 1;
+  fi
+  echo "Successfully applied rice \"$1\"!";
+fi

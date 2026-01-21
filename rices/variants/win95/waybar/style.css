@@ -1,0 +1,83 @@
+/* Color specs */
+@define-color background #c0c0c0;
+@define-color text-color #1a1a1a;
+@define-color primary #00207f;
+@define-color secondary #808080;
+@define-color light #d1e3e4;
+
+/* Generic/main stuff */
+* {
+	border: none;
+	font-weight: bold;
+	color: @text-color;
+	font-size: 24px;
+	border-radius: 0;
+	font-family: Fixedsys Excelsior;
+}
+
+
+window#waybar {
+	background-color: @background;
+	border-top: 2px solid @light;
+	box-shadow: inset 0 2px 0 @secondary;
+}
+/* Fix for strange white background when hovering buttons by default */
+button:hover {
+	background: inherit;
+	box-shadow: none;
+}
+
+/* Standard styling for module */
+#workspaces button,
+#tray,
+#clock,
+#custom-music,
+#custom-pipewire,
+#memory,
+#network {
+	background-color: @background;
+	padding: 0 5px;
+	margin: 10px 5px;
+	/* Let it be know, that this border bullshit took 1 hour, and it's maybe not even perfect but it's good enough */
+	box-shadow:
+		inset -2px -2px @secondary,
+		0px 0px 0px 2px @light,
+		1px 1px 0 1px @text-color;
+	border: none;
+}
+
+/* Workspaces */
+#workspaces {
+	margin-left: 2.5px;
+}
+#workspaces button {
+	margin: 10px 1px;
+}
+#workspaces button * {
+	color: @secondary;
+}
+#workspaces button.focused * {
+	color: @primary;
+}
+#workspaces button:hover {
+	background-color: @background;
+}
+
+/* Window */
+#window
+{
+	margin-left: 5px;
+}
+
+#memory {
+	/* Let it be know, that this border bullshit took 1 hour, and it's maybe not even perfect but it's good enough */
+	box-shadow:
+		 inset -2px -2px @secondary,
+		0px 0px 0px 2px @light,
+			1px 1px 0 1px @text-color;
+	border: none;
+}
+/* Hiding music when not playing */
+#custom-music.stopped {
+	opacity: 0;
+}

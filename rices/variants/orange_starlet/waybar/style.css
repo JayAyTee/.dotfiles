@@ -1,0 +1,76 @@
+/* Color specs */
+/*@define-color background rgba(146,156,162,0.6);*/
+@define-color background rgba(41,41,41,0.85);
+@define-color text-color #1a1a1a;
+@define-color primary #a24f0c;
+@define-color secondary #808080;
+@define-color light rgba(82,82,82,0.85);
+
+/* Generic/main stuff */
+* {
+	border: none;
+	font-weight: bold;
+	color: @text-color;
+	font-size: 20px;
+	border-radius: 0;
+	font-family: Jetbrains Mono Extra Bold;
+}
+
+window#waybar {
+	background-color: transparent;
+	/*background-color: @background;
+	border-radius: 3px;*/
+}
+/* Fix for strange white background when hovering buttons by default */
+button:hover {
+	background: inherit;
+	box-shadow: none;
+}
+
+/* Standard styling for module */
+#workspaces button,
+#tray,
+#clock,
+#custom-music,
+#custom-pipewire,
+#memory,
+#network {
+	border-radius: 30px;
+}
+
+.modules-right * {
+	color: @primary;
+}
+
+/* Workspaces */
+.modules-right,
+#workspaces {
+	background-color: @background;
+	padding: 0 10px;
+	border-radius: 40px;
+	border: 2px solid @primary;
+}
+#workspaces button {
+}
+#workspaces button * {
+	color: @secondary;
+}
+#workspaces button.focused * {
+	color: @primary;
+	/*background-color: @light;*/
+}
+#workspaces button:hover {
+	background-color: @background;
+}
+
+/* Window */
+#window
+{
+}
+#clock {
+	margin: 0 10px;
+}
+
+/* Hiding music when not playing */
+#custom-music.stopped {
+}

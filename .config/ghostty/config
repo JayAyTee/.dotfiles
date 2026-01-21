@@ -1,0 +1,10 @@
+theme = "Autumn"
+window-inherit-working-directory = false
+working-directory = home
+macos-secure-input-indication = false
+
+#font-family = "Fixedsys Excelsior"
+#font-family="JetBrains Mono"
+#font-family = "JetBrains Mono Regular"
+#font-style=Bold
+font-size = 18
