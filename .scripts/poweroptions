@@ -1,0 +1,8 @@
+#!/bin/sh
+
+response=$(echo -e "Shutdown\nReboot" | dmenu -i)
+
+case "$response" in
+	"Shutdown") poweroff ;;
+	"Reboot") reboot ;;
+esac

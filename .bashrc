@@ -32,8 +32,11 @@ ls() {
   fi
 }
 alias grep='grep --color=auto'
-source ~/.colors
-PS1="${color_red}[${color_yellow}\u${color_cyan}|${color_blue}\w${color_red}]${color_purple}\$ ${color_reset}"
+# source ~/.colors
+# PS1="${color_red}[${color_yellow}\u${color_cyan}|${color_blue}\w${color_red}]${color_purple}\$ ${color_reset}"
+source ~/git-prompt.sh
+PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; 
+PS1='\[\e[91;1m\][\[\e[93m\]\u\[\e[36m\]|\[\e[94m\]\w\[\e[35m\]${PS1_CMD1}\[\e[91m\]]\[\e[92m\]\\$\[\e[0m\] '
 
 source ~/.zoxide
 

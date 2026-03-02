@@ -1,7 +1,9 @@
 theme = "Autumn"
 window-inherit-working-directory = false
+window-decoration = false
 working-directory = home
 macos-secure-input-indication = false
+title = "Ghostty"
 
 #font-family = "Fixedsys Excelsior"
 #font-family="JetBrains Mono"

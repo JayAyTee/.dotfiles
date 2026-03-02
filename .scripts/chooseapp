@@ -4,7 +4,7 @@ apps_dir=~/.scripts/main_apps/
 
 apps=$(ls $apps_dir)
 
-selected_app=$(echo "$apps" | rofi -dmenu -i )
+selected_app=$(echo "$apps" | dmenu -i )
 
 if [ -n "$selected_app" ]; then
   "${apps_dir}${selected_app}"

@@ -1,0 +1,65 @@
+[
+  {
+    "file": "drw.c",
+    "arguments": [
+      "cc",
+      "-c",
+      "-std=c99",
+      "-pedantic",
+      "-Wall",
+      "-Wno-deprecated-declarations",
+      "-Os",
+      "-I/usr/X11R6/include",
+      "-I/usr/include/freetype2",
+      "-D_DEFAULT_SOURCE",
+      "-D_BSD_SOURCE",
+      "-D_XOPEN_SOURCE=700L",
+      "-DVERSION=\"6.5\"",
+      "-DXINERAMA",
+      "drw.c"
+    ],
+    "directory": "/home/alvin/.dotfiles/.suckless/dwm"
+  },
+  {
+    "file": "dwm.c",
+    "arguments": [
+      "cc",
+      "-c",
+      "-std=c99",
+      "-pedantic",
+      "-Wall",
+      "-Wno-deprecated-declarations",
+      "-Os",
+      "-I/usr/X11R6/include",
+      "-I/usr/include/freetype2",
+      "-D_DEFAULT_SOURCE",
+      "-D_BSD_SOURCE",
+      "-D_XOPEN_SOURCE=700L",
+      "-DVERSION=\"6.5\"",
+      "-DXINERAMA",
+      "dwm.c"
+    ],
+    "directory": "/home/alvin/.dotfiles/.suckless/dwm"
+  },
+  {
+    "file": "util.c",
+    "arguments": [
+      "cc",
+      "-c",
+      "-std=c99",
+      "-pedantic",
+      "-Wall",
+      "-Wno-deprecated-declarations",
+      "-Os",
+      "-I/usr/X11R6/include",
+      "-I/usr/include/freetype2",
+      "-D_DEFAULT_SOURCE",
+      "-D_BSD_SOURCE",
+      "-D_XOPEN_SOURCE=700L",
+      "-DVERSION=\"6.5\"",
+      "-DXINERAMA",
+      "util.c"
+    ],
+    "directory": "/home/alvin/.dotfiles/.suckless/dwm"
+  }
+]

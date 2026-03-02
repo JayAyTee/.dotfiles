@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SENSITIVITY=-0.9
+
+dev_id=$(xinput list | grep "Logitech G403 Prodigy Gaming Mouse  " | awk -F 'id=' '{print $2}' | awk '{print $1}')
+
+prop_id=$(xinput list-props $dev_id | grep "Accel Speed (" | awk -F '[()]' '{print $2}')
+
+xinput set-prop $dev_id $prop_id $SENSITIVITY
