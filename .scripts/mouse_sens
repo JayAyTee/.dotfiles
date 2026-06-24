@@ -1,4 +1,5 @@
 #!/bin/bash
+# NAME="Set mouse sensitivity"
 
 SENSITIVITY=-0.9
 

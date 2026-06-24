@@ -1,4 +1,5 @@
 #!/bin/bash
+# NAME="Generate hidden files list"
 
 glob=""
 while read p; do

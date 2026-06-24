@@ -1,3 +1,4 @@
 #!/bin/bash
+# NAME="Add app"
 
 ln -s $(which $1) "/home/alvin/.scripts/main_apps/$2"

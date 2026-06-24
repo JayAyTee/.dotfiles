@@ -13,7 +13,7 @@ local _ = {
     })
   end
 }
-return {
+local _ = {
   "nvim-treesitter/nvim-treesitter",
   branch = "master",
   lazy = false,
@@ -26,4 +26,10 @@ return {
     vim.treesitter.language.register("html", "ejs");
     vim.treesitter.language.register("javascript", "ejs");
   end
+}
+
+return {
+  'nvim-treesitter/nvim-treesitter',
+  lazy = false,
+  build = ':TSUpdate'
 }

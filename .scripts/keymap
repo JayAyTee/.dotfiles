@@ -1,3 +1,4 @@
 #!/bin/bash
+# NAME="Set keymap"
 
 setxkbmap -layout se -variant nodeadkeys -option caps:backspace

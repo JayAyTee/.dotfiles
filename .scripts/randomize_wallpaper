@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# NAME="Randomize Wallpaper"
+
+# Make sure we're in the appropriate dir
+cd ~/Pictures/Wallpapers/
+
+# Refill if empty (new cycle)
+if [ -z "$(find random -maxdepth 1 -type f -print -quit)" ]; then
+  echo "End of cycle!"
+  mv random/used/* random/.
+fi
+file=$(ls -p random | grep -v / | sort -R | head -1)
+
+mv random/$file random/used/
+
+./change_wallpaper random/used/$file
+
+# Finally return to the old dir
+cd -

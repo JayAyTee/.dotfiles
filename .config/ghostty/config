@@ -1,4 +1,5 @@
-theme = "Autumn"
+#theme = "Autumn"
+theme = "One Dark"
 window-inherit-working-directory = false
 window-decoration = false
 working-directory = home
@@ -10,3 +11,5 @@ title = "Ghostty"
 #font-family = "JetBrains Mono Regular"
 #font-style=Bold
 font-size = 18
+
+clipboard-paste-protection=false

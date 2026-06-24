@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+devs=($(lsblk -P | grep 'MOUNTPOINTS=""' | grep 'TYPE="part"' | cut -d'"' -f2))
+
+echo "Select device from the list:"
+select dev in "${devs[@]}"; do
+  if [[ -z "$dev" ]]; then 
+    echo "Not a valid device, please enter the number next to the device"
+    continue
+  fi
+  if [[ "${devs[@]}" =~ "$dev" ]]; then
+    break
+  fi
+done
+echo $dev
+
+sudo mount "/dev/$dev" -o gid=1000,uid=1000 /mnt/temp

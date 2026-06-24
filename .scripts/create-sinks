@@ -1,0 +1,31 @@
+#!/bin/bash
+# NAME="Create Sinks"
+
+# Create sinks
+pactl load-module module-null-sink sink_name=game sink_properties=device.description="Game Audio"
+pactl load-module module-null-sink sink_name=chat sink_properties=device.description="Chat Audio"
+
+# Sleeping because otherwise it might not connect all of them
+
+sleep 0.5
+
+# Link them to UMC404HD
+
+# Old "Pro audio setting"
+# pw-link game:monitor_FL alsa_output.usb-BEHRINGER_UMC404HD_192k-00.pro-output-0:playback_AUX0
+# pw-link game:monitor_FR alsa_output.usb-BEHRINGER_UMC404HD_192k-00.pro-output-0:playback_AUX1
+# pw-link chat:monitor_FL alsa_output.usb-BEHRINGER_UMC404HD_192k-00.pro-output-0:playback_AUX2
+# pw-link chat:monitor_FR alsa_output.usb-BEHRINGER_UMC404HD_192k-00.pro-output-0:playback_AUX3
+
+# pw-link game:monitor_FL alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line1__sink.split:monitor_AUX0
+# pw-link game:monitor_FR alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line1__sink.split:monitor_AUX1
+# pw-link chat:monitor_FL alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line2__sink.split:monitor_AUX2
+# pw-link chat:monitor_FR alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line2__sink.split:monitor_AUX3
+pw-link game:monitor_FL alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line1__sink:playback_FL
+pw-link game:monitor_FR alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line1__sink:playback_FR
+pw-link game:monitor_FL alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line2__sink:playback_FL
+pw-link game:monitor_FR alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line2__sink:playback_FR
+pw-link chat:monitor_FL alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line1__sink:playback_FL
+pw-link chat:monitor_FR alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line1__sink:playback_FR
+pw-link chat:monitor_FL alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line2__sink:playback_FL
+pw-link chat:monitor_FR alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line2__sink:playback_FR

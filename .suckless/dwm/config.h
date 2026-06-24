@@ -79,10 +79,10 @@ static const char *dmenucmd[] = {
 	"-sf", selfgcolor,
 	NULL
 };
-static const char *termcmd[]  = { "ghostty", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 static const char *flameshot[] = { "flameshot", "gui", NULL };
 static const char *librewolf[] = { "librewolf", NULL };
-static const char *thunar[] = { "thunar", NULL };
+static const char *thunar[] = { "pcmanfm", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -121,6 +121,7 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = librewolf } },
   { MODKEY,                       XK_e,      spawn,          {.v = thunar } },
   { MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("~/.scripts/poweroptions") },
+  { MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("~/.scripts/script_runner") },
   { MODKEY,                       XK_p,      spawn,          SHCMD("~/.scripts/chooseapp") },
   { MODKEY,                       XK_o,      spawn,          SHCMD("picom-trans -c -o 90") },
   { MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("picom-trans -c -o 100") },

@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/alvin/dev/c/dwm-cli/cli'
+let g:netrw_dirhist_7='/home/alvin/dev/c/dwm-cli/temp'
+let g:netrw_dirhist_6='/home/alvin/dev/c/dwm-cli/cli'
+let g:netrw_dirhist_5='/home/alvin/dev/c/dwm-cli/temp'
 let g:netrw_dirhist_4='/home/alvin/.config/nvim_nightly_and_stable_bs/lua/config'
 let g:netrw_dirhist_3='/home/alvin/.config/nvim_nightly_and_stable_bs/lua'
 let g:netrw_dirhist_2='/home/alvin/.config/nvim_nightly_and_stable_bs/lua/nightly'
 let g:netrw_dirhist_1='/home/alvin/.config/nvim_nightly_and_stable_bs/lua'
 let g:netrw_dirhist_0='/home/alvin/.config/nvim_nightly_and_stable_bs/lua/nightly'
 let g:netrw_dirhist_9='/home/alvin/.config/nvim_nightly_and_stable_bs/lua'
-let g:netrw_dirhist_8='/home/alvin/.config/nvim_nightly_and_stable_bs'
-let g:netrw_dirhist_7='/home/alvin/.config/sway/config.d'
-let g:netrw_dirhist_6='/home/alvin/.config/sway'
-let g:netrw_dirhist_5='/home/alvin/.config/sway/config.d'

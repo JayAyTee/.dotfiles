@@ -1,4 +1,5 @@
 #!/bin/sh
+# NAME="Open power options"
 
 response=$(echo -e "Shutdown\nReboot" | dmenu -i)
 

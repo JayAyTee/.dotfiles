@@ -1,0 +1,5 @@
+#!/bin/bash
+# NAME="Update inputs"
+
+sh /home/alvin/.scripts/keymap
+sh /home/alvin/.scripts/mouse_sens
