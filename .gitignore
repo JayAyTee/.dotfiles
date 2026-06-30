@@ -1,6 +1,2 @@
-.config/*
-!.config/ghostty
-!.config/nvim
-!.config/rofi
 .ssh
 .scripts/main_apps/*
