@@ -19,7 +19,7 @@ compinit
 PATH="$PATH:/home/alvin/.cargo/bin"
 
 # Wonderful "alia"
-export NVIM_APPNAME=nvim-minimal
+export NVIM_APPNAME=nvim12
 export EDITOR="nvim"
 alias v="nvim"
 alias vim="nvim"
@@ -31,6 +31,7 @@ alias dev="cd ~/dev/"
 alias media="cd /mnt/Media/"
 alias grep='grep --color=auto'
 alias ssh='TERM=xterm-256color ssh'
+alias zspam="~/.scripts/zspam"
 
 hiddeninhome="$("$HOME/.scripts/generatehidden")"
 alias lsa="eza -la --color=always --group-directories-first"
