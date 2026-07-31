@@ -42,15 +42,15 @@ require("lazydev").setup({
 require("lualine").setup({
   options = {
     section_separators = { left = "", right = ""},
-    -- theme = "onedark", -- edge colorscheme
-    theme = "everforest",
+    theme = "onedark", -- edge colorscheme
+    -- theme = "everforest",
   }
 });
 
 -- vim.cmd.colorscheme "gruvbox-material"
--- vim.cmd.colorscheme "edge"
-vim.g.everforest_background = "soft"
-vim.cmd.colorscheme "everforest"
+vim.cmd.colorscheme "edge"
+-- vim.g.everforest_background = "soft"
+-- vim.cmd.colorscheme "everforest"
 vim.cmd.highlight "BoldText gui=bold"
 vim.cmd.match "BoldText /./"
 -- require('vim._core.ui2').enable({
@@ -65,3 +65,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 });
 require("lsp_signature").setup({});
 require('nvim-highlight-colors').setup({})
+
+vim.keymap.set("n", "<leader>cc", ":CompileCommand<CR>")
+vim.keymap.set("n", "<leader>cr", ":Compile<CR>")
+vim.keymap.set("n", "<leader>cv", ":CompileView<CR>")
+vim.keymap.set("n", "<leader>cd", ":CompileClose<CR>")

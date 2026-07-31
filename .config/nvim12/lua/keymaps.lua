@@ -47,6 +47,8 @@ map("n", "<leader>m", "<cmd>!make<CR>");
 -- Signature help
 map({"i", "n"}, "<C-p>", vim.lsp.buf.signature_help);
 -- Editing neovim config
-map("n", "<leader><leader>env", ":edit " .. os.getenv("HOME") .. "/.config/nvim-minimal/lua<CR>");
+map("n", "<leader><leader>env", ":edit " .. os.getenv("HOME") .. "/.config/nvim12/lua<CR>");
 -- Escaping the terminal of doom!
 map("t", "<Esc>", "<C-\\><C-n>");
+-- Compiling
+map("n", "<leader><leader>x", ":Compile<CR>");
