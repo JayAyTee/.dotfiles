@@ -10,6 +10,7 @@ vim.lsp.enable({
   -- "rust_analyzer",
   "clangd",
   "glsl_analyzer",
+  "jdtls"
 });
 vim.keymap.set({"n", "v" }, "<leader><leader>lf", vim.lsp.buf.format);
 vim.keymap.set("n", "K", vim.lsp.buf.hover);
@@ -33,3 +34,12 @@ vim.lsp.config("ts_ls", {
 });
 
 require("mason").setup({});
+
+-- gra → code actions
+-- gri → implementations
+-- grn → rename
+-- grr → references
+-- grt → type definition
+-- grx → run codelens
+-- gO → document symbols
+-- Ctrl-S in Insert mode → signature help

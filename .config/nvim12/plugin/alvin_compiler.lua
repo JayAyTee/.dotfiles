@@ -26,7 +26,7 @@ local function save_project()
   local json = vim.json.encode(json_data)
   vim.fn.writefile({json},path)
 end
-local function create_buf()
+local function buf_kill()
   if vim.api.nvim_buf_is_valid(state.buf) then
     if state.job > 0 then
       pcall(vim.fn.chansend,state.job, "\003")
@@ -35,6 +35,9 @@ local function create_buf()
     os.execute("sleep 0.2");
     vim.api.nvim_buf_delete(state.buf, {force=true})
   end
+end
+local function create_buf()
+  buf_kill()
   state.buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_call(state.buf, function()
     state.job = vim.fn.jobstart(project.compile_command, {term = true})
@@ -76,6 +79,7 @@ vim.api.nvim_create_user_command("CompileView", function()
   end
 end, {})
 vim.api.nvim_create_user_command("CompileClose", function()
+  buf_kill()
   if vim.api.nvim_win_is_valid(state.win) then
     vim.api.nvim_win_close(state.win, true);
   end

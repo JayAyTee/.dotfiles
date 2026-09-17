@@ -35,13 +35,19 @@ alias zspam="~/.scripts/zspam"
 
 hiddeninhome="$("$HOME/.scripts/generatehidden")"
 alias lsa="eza -la --color=always --group-directories-first"
-ls() {
+alias ls="eza -l --color=always --group-directories-first"
+la() {
   if [[ $PWD == $HOME ]]; then
     eza -la --color=always --group-directories-first \
       --ignore-glob="$hiddeninhome" "$@"
   else
     eza -la --color=always --group-directories-first "$@"
   fi
+}
+d() {
+  local dir
+  dir=$(~/.scripts/project_manager) || return
+  cd "$dir" || return
 }
 
 # Prompt

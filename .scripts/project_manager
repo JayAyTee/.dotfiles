@@ -1,0 +1,14 @@
+#!/bin/env bash
+
+cd ~/dev
+mapfile -t projects < <(find . -mindepth 2 -maxdepth 2 -type d ! -path './resources/*' -printf '%P\n')
+projects+=("NEW")
+project=$(printf '%s\n' "${projects[@]}" | fzf)
+if [[ "$project" == "NEW" ]]; then
+  lang=$(ls --ignore='*resources' | fzf)
+  echo "Enter name of project">&2
+  read -r name
+  mkdir "$lang/$name"
+  project="$lang/$name"
+fi
+echo "$HOME/dev/$project"

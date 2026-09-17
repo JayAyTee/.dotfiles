@@ -21,6 +21,8 @@ vim.pack.add({
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",
   "https://github.com/nvim-tree/nvim-web-devicons";
   "https://github.com/nvim-lualine/lualine.nvim",
+  "https://github.com/anuvyklack/pretty-fold.nvim",
+  "https://github.com/nvim-treesitter/nvim-treesitter",
 });
 
 require("nvim-autopairs").setup({});
@@ -70,3 +72,9 @@ vim.keymap.set("n", "<leader>cc", ":CompileCommand<CR>")
 vim.keymap.set("n", "<leader>cr", ":Compile<CR>")
 vim.keymap.set("n", "<leader>cv", ":CompileView<CR>")
 vim.keymap.set("n", "<leader>cd", ":CompileClose<CR>")
+
+require("nvim-treesitter").setup({})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "java" },
+  callback = function() vim.treesitter.start() end,
+})

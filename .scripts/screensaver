@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+xscreensaver --no-splash &
+
+while sleep 5; do
+  if playerctl status 2>/dev/null | grep -q '^Playing$'; then
+    xscreensaver-command -deactivate >/dev/null
+  fi
+done
