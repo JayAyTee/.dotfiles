@@ -1,3 +1,5 @@
 .ssh
 .scripts/main_apps/*
 .vim/undodir
+.config/nvim12/nvim-pack-lock.json
+.config/tmux/plugins/

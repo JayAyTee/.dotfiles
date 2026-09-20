@@ -1,0 +1,19 @@
+#!/bin/env bash
+
+b0=$(cat /sys/class/power_supply/BAT0/capacity)
+b1=$(cat /sys/class/power_supply/BAT1/capacity)
+avg=$((($b0 + $b1) / 2))
+b0s=$(cat /sys/class/power_supply/BAT0/status)
+b1s=$(cat /sys/class/power_supply/BAT1/status)
+status=""
+if [[ "$b0s" == "Charging" || "$b1s" == "Charging" ]]; then
+  status=" ⚡"
+fi
+
+echo "$avg%$status "
+
+warn_threshold=20
+
+if [[ $avg -le $warn_threshold  && "$status" == "" ]]; then
+  notify-send "Warning! Low battery!"
+fi

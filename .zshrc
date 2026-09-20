@@ -16,7 +16,7 @@ compinit
 # My zsh config
 
 # Add cargo to path
-PATH="$PATH:/home/alvin/.cargo/bin"
+PATH="$PATH:/home/alvin/.cargo/bin:/home/alvin/.scripts"
 
 # Wonderful "alia"
 export NVIM_APPNAME=nvim12
@@ -34,16 +34,8 @@ alias ssh='TERM=xterm-256color ssh'
 alias zspam="~/.scripts/zspam"
 
 hiddeninhome="$("$HOME/.scripts/generatehidden")"
-alias lsa="eza -la --color=always --group-directories-first"
+alias la="eza -la --color=always --group-directories-first"
 alias ls="eza -l --color=always --group-directories-first"
-la() {
-  if [[ $PWD == $HOME ]]; then
-    eza -la --color=always --group-directories-first \
-      --ignore-glob="$hiddeninhome" "$@"
-  else
-    eza -la --color=always --group-directories-first "$@"
-  fi
-}
 d() {
   local dir
   dir=$(~/.scripts/project_manager) || return
@@ -80,3 +72,5 @@ export GROFF_NO_SGR=1                             # Important for konsole and gn
 # Finally, set the LESS options for general less behavior
 export LESS='-R --use-color -Dd+r$Du+b'
 export PAGER='less'
+
+bindkey -s "^f" "tmux-sessionizer\n"

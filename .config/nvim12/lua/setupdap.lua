@@ -2,7 +2,7 @@ local dap = require("dap")
 local ui = require("dapui")
 local dap_virtual_text = require("nvim-dap-virtual-text")
 
-dap_virtual_text.setup()
+dap_virtual_text.setup({})
 
 dap.adapters.cppdbg = {
   id = "cppdbg",
@@ -19,7 +19,14 @@ dap.configurations.c = {
     end,
     cwd = '${workspaceFolder}',
     stopAtEntry = true,
-  },
+	setupCommands = { -- This allows vectors and other data structures to show the values inside them.
+		{
+			text = '-enable-pretty-printing',
+			description =  'enable pretty printing',
+			ignoreFailures = false
+		},
+	},
+},
   {
     name = 'Attach to gdbserver :1234',
     type = 'cppdbg',
