@@ -33,7 +33,6 @@ alias grep='grep --color=auto'
 alias ssh='TERM=xterm-256color ssh'
 alias zspam="~/.scripts/zspam"
 
-hiddeninhome="$("$HOME/.scripts/generatehidden")"
 alias la="eza -la --color=always --group-directories-first"
 alias ls="eza -l --color=always --group-directories-first"
 d() {

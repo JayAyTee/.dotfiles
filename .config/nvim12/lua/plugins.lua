@@ -23,7 +23,8 @@ vim.pack.add({
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/anuvyklack/pretty-fold.nvim",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/christoomey/vim-tmux-navigator"
+	"https://github.com/christoomey/vim-tmux-navigator",
+	"https://github.com/chrisgrieser/nvim-origami",
 });
 
 require("nvim-autopairs").setup({});
@@ -56,26 +57,57 @@ vim.cmd.colorscheme "edge"
 -- vim.cmd.colorscheme "everforest"
 vim.cmd.highlight "BoldText gui=bold"
 vim.cmd.match "BoldText /./"
--- require('vim._core.ui2').enable({
-	--   enable = true, -- Whether to enable or disable the UI.
-	-- })
-	vim.api.nvim_create_augroup("jayaytee", { clear = true });
-	vim.api.nvim_create_autocmd("WinEnter", { command = "match BoldText /./", group = "jayaytee" });
-	vim.api.nvim_create_autocmd("TextYankPost", {
-		group = "jayaytee",
-		pattern = "*",
-		callback = function() vim.highlight.on_yank { timeout = 200 } end
-	});
-	require("lsp_signature").setup({});
-	require('nvim-highlight-colors').setup({})
+vim.api.nvim_create_augroup("jayaytee", { clear = true });
+vim.api.nvim_create_autocmd("WinEnter", { command = "match BoldText /./", group = "jayaytee" });
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = "jayaytee",
+	pattern = "*",
+	callback = function() vim.highlight.on_yank { timeout = 200 } end
+});
+require("lsp_signature").setup({});
+require('nvim-highlight-colors').setup({})
 
-	vim.keymap.set("n", "<leader>cc", ":CompileCommand<CR>")
-	vim.keymap.set("n", "<leader>cr", ":Compile<CR>")
-	vim.keymap.set("n", "<leader>cv", ":CompileView<CR>")
-	vim.keymap.set("n", "<leader>cd", ":CompileClose<CR>")
+vim.keymap.set("n", "<leader>cc", ":CompileCommand<CR>")
+vim.keymap.set("n", "<leader>cr", ":Compile<CR>")
+vim.keymap.set("n", "<leader>cv", ":CompileView<CR>")
+vim.keymap.set("n", "<leader>cd", ":CompileClose<CR>")
 
-	require("nvim-treesitter").setup({})
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = { "java" },
-		callback = function() vim.treesitter.start() end,
-	})
+require('vim._core.ui2').enable({
+	enable = true, -- Whether to enable or disable the UI.
+})
+require("nvim-treesitter").setup({})
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "java" },
+	callback = function() vim.treesitter.start() end,
+})
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+require("origami").setup({
+	useLspFoldsWithTreesitterFallback = {
+		enabled = true,
+		foldmethodIfNeitherIsAvailable = "indent",
+	},
+	pauseFoldsOnSearch = true,
+	foldtext = {
+		enabled = true,
+		padding = {
+			character = " ",
+			width = 3,
+			hlgroup = nil,
+		},
+		lineCount = {
+			template = "%d lines",
+			hlgroup = "Comment",
+		},
+		diagnosticsCount = true,
+	},
+	autoFold = {
+		enabled = true,
+		kinds = { "comment", "imports", "region" },
+	},
+	foldKeymaps = {
+		setup = true,
+		closeOnlyOnFirstColumn = true,
+		scrollLeftOnCaret = false
+	}
+})
