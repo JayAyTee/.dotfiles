@@ -52,4 +52,7 @@ map("n", "<leader><leader>env", ":edit " .. os.getenv("HOME") .. "/.config/nvim1
 map("t", "<Esc>", "<C-\\><C-n>");
 -- Compiling
 map("n", "<leader><leader>x", ":Compile<CR>");
+-- Sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+-- Folding 
+map("n", "<Tab>", "za<CR>");

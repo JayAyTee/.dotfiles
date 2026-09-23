@@ -21,10 +21,8 @@ vim.pack.add({
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
 	"https://github.com/nvim-lualine/lualine.nvim",
-	"https://github.com/anuvyklack/pretty-fold.nvim",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/christoomey/vim-tmux-navigator",
-	"https://github.com/chrisgrieser/nvim-origami",
 });
 
 require("nvim-autopairs").setup({});
@@ -33,39 +31,21 @@ require("setuptelescope");
 require("setuplsp");
 require("setupcomp");
 require("setupdap");
-require("lazydev").setup({
-	ft = "lua", -- only load on lua files
-	opts = {
-		library = {
-			-- See the configuration section for more details
-			-- Load luvit types when the `vim.uv` word is found
-			{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-		},
-	},
-});
-require("lualine").setup({
-	options = {
-		section_separators = { left = "", right = "" },
-		theme = "onedark", -- edge colorscheme
-		-- theme = "everforest",
-	}
-});
+require("setupmisc");
+require("setuplooks");
+require("lsp_signature").setup({});
+require('nvim-highlight-colors').setup({})
+require("nvim-treesitter").setup({})
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "java" },
+	callback = function() vim.treesitter.start() end,
+})
 
--- vim.cmd.colorscheme "gruvbox-material"
-vim.cmd.colorscheme "edge"
--- vim.g.everforest_background = "soft"
--- vim.cmd.colorscheme "everforest"
-vim.cmd.highlight "BoldText gui=bold"
-vim.cmd.match "BoldText /./"
-vim.api.nvim_create_augroup("jayaytee", { clear = true });
-vim.api.nvim_create_autocmd("WinEnter", { command = "match BoldText /./", group = "jayaytee" });
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = "jayaytee",
 	pattern = "*",
 	callback = function() vim.highlight.on_yank { timeout = 200 } end
 });
-require("lsp_signature").setup({});
-require('nvim-highlight-colors').setup({})
 
 vim.keymap.set("n", "<leader>cc", ":CompileCommand<CR>")
 vim.keymap.set("n", "<leader>cr", ":Compile<CR>")
@@ -75,39 +55,9 @@ vim.keymap.set("n", "<leader>cd", ":CompileClose<CR>")
 require('vim._core.ui2').enable({
 	enable = true, -- Whether to enable or disable the UI.
 })
-require("nvim-treesitter").setup({})
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "java" },
-	callback = function() vim.treesitter.start() end,
-})
+
+vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-require("origami").setup({
-	useLspFoldsWithTreesitterFallback = {
-		enabled = true,
-		foldmethodIfNeitherIsAvailable = "indent",
-	},
-	pauseFoldsOnSearch = true,
-	foldtext = {
-		enabled = true,
-		padding = {
-			character = " ",
-			width = 3,
-			hlgroup = nil,
-		},
-		lineCount = {
-			template = "%d lines",
-			hlgroup = "Comment",
-		},
-		diagnosticsCount = true,
-	},
-	autoFold = {
-		enabled = true,
-		kinds = { "comment", "imports", "region" },
-	},
-	foldKeymaps = {
-		setup = true,
-		closeOnlyOnFirstColumn = true,
-		scrollLeftOnCaret = false
-	}
-})
