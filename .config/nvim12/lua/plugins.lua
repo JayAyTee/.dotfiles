@@ -57,7 +57,7 @@ require('vim._core.ui2').enable({
 })
 
 vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
+require("custompl.lsp_hover").setup();

@@ -3,6 +3,10 @@ require("telescope").setup({
     file_ignore_patterns = {
       "%.o",
       "node_modules/",
+	  "vendorlibs/",
+	  "include/vendor",
+	  "src/client/glad/",
+	  "include/client/glad.h",
     }
   }
 });
