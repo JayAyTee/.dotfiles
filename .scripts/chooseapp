@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 # NAME="Choose app"
 
 apps_dir=~/.scripts/main_apps/

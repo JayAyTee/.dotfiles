@@ -1,4 +1,4 @@
 require("opt");
 require("keymaps");
 require("plugins");
-require("views")
+require("folds")

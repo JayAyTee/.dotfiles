@@ -73,3 +73,6 @@ export LESS='-R --use-color -Dd+r$Du+b'
 export PAGER='less'
 
 bindkey -s "^f" "tmux-sessionizer\n"
+
+# Stop annoying gdb shit
+unset DEBUGINFOD_URLS

@@ -1,9 +1,10 @@
 #!/bin/sh
 # NAME="Open power options"
 
-response=$(echo -e "Shutdown\nReboot" | dmenu -i)
+response=$(echo -e "Shutdown\nReboot\nSleep" | dmenu -i)
 
 case "$response" in
 	"Shutdown") poweroff ;;
 	"Reboot") reboot ;;
+	"Sleep") systemctl hibernate ;;
 esac

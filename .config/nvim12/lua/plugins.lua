@@ -37,7 +37,7 @@ require("lsp_signature").setup({});
 require('nvim-highlight-colors').setup({})
 require("nvim-treesitter").setup({})
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "java" },
+	pattern = { "java", "js" },
 	callback = function() vim.treesitter.start() end,
 })
 
