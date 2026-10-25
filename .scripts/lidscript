@@ -1,0 +1,9 @@
+#!/bin/sh
+
+acpi_listen | while IFS= read -r event; do
+    case "$event" in
+        "button/lid LID close"*)
+            slock
+            ;;
+    esac
+done

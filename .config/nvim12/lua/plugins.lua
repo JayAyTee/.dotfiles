@@ -37,7 +37,7 @@ require("lsp_signature").setup({});
 require('nvim-highlight-colors').setup({})
 require("nvim-treesitter").setup({})
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "java", "js" },
+	pattern = { "java", "javascript" },
 	callback = function() vim.treesitter.start() end,
 })
 
@@ -60,4 +60,6 @@ vim.opt.foldmethod = "expr"
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
+vim.cmd("set fde=v:lua.vim.treesitter.foldexpr()")
+
 require("custompl.lsp_hover").setup();

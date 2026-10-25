@@ -15,7 +15,7 @@ vim.lsp.enable({
 vim.keymap.set({"n", "v" }, "<leader><leader>lf", vim.lsp.buf.format);
 vim.keymap.set("n", "K", vim.lsp.buf.hover);
 vim.keymap.set("n", "gd", vim.lsp.buf.definition);
-vim.keymap.set("n", "<leader>od", vim.diagnostic.open_float);
+vim.keymap.set("n", "<leader>O", vim.diagnostic.open_float);
 vim.diagnostic.enable = true;
 vim.diagnostic.config({
   virtual_text = true,
