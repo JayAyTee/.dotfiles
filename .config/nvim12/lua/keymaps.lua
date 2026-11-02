@@ -58,3 +58,5 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 map("n", "<Tab>", "za<CR>");
 map("n", "<leader>i", "<C-I>");
 map("n", "<leader>o", "<C-O>");
+-- Yazi
+map("n", "<C-y>", ":Yazi<CR>");

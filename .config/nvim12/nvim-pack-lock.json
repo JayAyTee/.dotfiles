@@ -107,6 +107,10 @@
     "vim-tmux-navigator": {
       "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
+    "yazi.nvim": {
+      "rev": "24b74d5ac9f8c7fa776d9ab14bb338512aa64954",
+      "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
 }

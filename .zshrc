@@ -16,7 +16,7 @@ compinit
 # My zsh config
 
 # Add cargo to path
-PATH="$PATH:/home/alvin/.cargo/bin:/home/alvin/.scripts"
+PATH="$PATH:/home/alvin/.cargo/bin:/home/alvin/.scripts:/home/alvin/.local/bin"
 
 # Wonderful "alia"
 export NVIM_APPNAME=nvim12

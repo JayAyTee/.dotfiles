@@ -1,0 +1,252 @@
+#:schema https://yazi-rs.github.io/schemas/theme.json
+
+# Bluloco dark flavour for Yazi
+[app]
+overall = { bg = "#2c2e34" }
+
+[mgr]
+
+# Current working directory
+cwd = { fg = "#6cb6eb" }
+
+# Symlink
+symlink_target = { italic = true }
+
+# Marker
+marker_copied = { fg = "#deb974", bg = "#deb974" }
+marker_cut = { fg = "#ec7279", bg = "#ec7279" }
+marker_marked = { fg = "#d38aea", bg = "#d38aea" }
+marker_selected = { fg = "#6cb6eb", bg = "#6cb6eb" }
+
+# Count
+count_copied = { fg = "#2c2e34", bg = "#deb974" }
+count_cut = { fg = "#2c2e34", bg = "#ec7279" }
+count_selected = { fg = "#2c2e34", bg = "#6cb6eb" }
+
+# Border
+border_symbol = "│"
+border_style = { fg = "#d38aea" }
+
+# Find
+[mgr.find_keyword]
+fg = "#deb974"
+bg = "#a0c980"
+bold = true
+italic = true
+underline = true
+
+[mgr.find_position]
+fg = "#828a98"
+bg = "reset"
+bold = true
+italic = true
+
+
+# Indicator
+[indicator]
+parent = { reversed = true }
+current = { reversed = true }
+preview = { underline = true }
+padding = { open = "█", close = "█" }
+
+# Tabs
+[tabs]
+active = { fg = "#828a98", bg = "#2c2e34" }
+inactive = { fg = "#3b3e48", bg = "#24262a" }
+
+# Separator
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+
+# Colours for the modes in Yazi.
+#
+# The main styles are the styles for
+# sections at the ends of the status bar.
+#
+# The alternate styles (alt) are the
+# styles for the separators, which are
+# the sections in the status bar
+# that are right beside the sections
+# at the ends of the status bar.
+[mode]
+
+# Normal mode
+normal_main = { fg = "#2c2e34", bg = "#6cb6eb" }
+normal_alt = { fg = "#828a98", bg = "#384252" }
+
+# Select mode
+select_main = { fg = "#2c2e34", bg = "#d38aea" }
+select_alt = { fg = "#d38aea", bg = "#384252" }
+
+# Unset mode
+unset_main = { fg = "#2c2e34", bg = "#ec7279" }
+unset_alt = { fg = "#ec7279", bg = "#384252" }
+
+
+[status]
+overall = { fg = "#8691A3", bg = "#2D333E" }
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions
+perm_sep = { fg = "#5F697C" }
+perm_type = { fg = "#6cb6eb" }
+perm_read = { fg = "#d38aea" }
+perm_write = { fg = "#ec7279" }
+perm_exec = { fg = "#a0c980" }
+
+# Progress
+progress_label = { fg = "#2c2e34", bold = true }
+progress_normal = { fg = "#d38aea", bg = "#3b3e48" }
+progress_error = { fg = "#ec7279", bg = "#55393d" }
+
+
+[which]
+cols = 3
+mask = { bg = "#21232C" }
+cand = { fg = "#deb974" }
+desc = { fg = "#6cb6eb" }
+separator = " ➜ "
+separator_style = { fg = "#d38aea" }
+
+
+[confirm]
+border = { fg = "#d38aea" }
+title = { fg = "#d38aea" }
+body = {}
+list = {}
+btn_yes = { fg = "#a0c980" }
+btn_no = { fg = "#ec7279" }
+btn_labels = ["Yes", "No"]
+
+
+[spot]
+border = { fg = "#d38aea" }
+title = { fg = "#d38aea" }
+
+# Value of the items in the table
+tbl_col = { fg = "#6cb6eb" }
+
+# Hovered item in the spotter
+tbl_cell = { bg = "#5dbbc1" }
+
+
+[notify]
+title_info = { fg = "#6cb6eb" }
+title_warn = { fg = "#deb974" }
+title_error = { fg = "#ec7279" }
+
+# Icons
+icon_info = ""
+icon_warn = ""
+icon_error = ""
+
+
+[pick]
+border = { fg = "#d38aea" }
+active = { fg = "#deb974", bold = true }
+inactive = {}
+
+
+[input]
+border = { fg = "#d38aea" }
+title = { fg = "#d38aea" }
+value = {}
+selected = { reversed = true }
+
+
+[cmp]
+border = { fg = "#d38aea" }
+active = { bg = "#5dbbc1" }
+inactive = {}
+
+# Icons
+icon_file = ""
+icon_folder = ""
+icon_command = ""
+
+
+[tasks]
+border = { fg = "#d38aea" }
+title = { fg = "#d38aea" }
+hovered = { bg = "#5dbbc1", bold = true }
+
+
+[help]
+border = { fg = "#d38aea" }
+chord = { fg = "#deb974" }
+action = { fg = "#6cb6eb" }
+hovered = { bg = "#5dbbc1", bold = true }
+
+
+[filetype]
+rules = [
+
+	# Images
+	{ mime = "**/image/*", fg = "#a0c980" },
+
+	# Videos
+	{ mime = "**/video/*", fg = "#d38aea" },
+
+	# Audio
+	{ mime = "**/audio/*", fg = "#6cb6eb" },
+
+	# Archives
+	{ mime = "**/application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#deb974" },
+
+	# Documents
+	{ mime = "**/application/{pdf,doc,rtf}", fg = "#5dbbc1" },
+
+	# Virtual file system
+	{ mime = "vfs/{absent,stale}", fg = "#3b3e48" },
+
+	# Special files
+	{ url = "*", is = "orphan", fg = "#2c2e34", bg = "#ec7279" },
+	{ url = "*", is = "exec", fg = "#a0c980" },
+
+	# Dummy files
+	{ url = "*", is = "dummy", fg = "#2c2e34", bg = "#ec7279" },
+	{ url = "*/", is = "dummy", fg = "#2c2e34", bg = "#ec7279" },
+
+	# Fallback
+	{ url = "*", fg = "#828a98" },
+	{ url = "*/", fg = "#6cb6eb" },
+]
+
+[icon]
+prepend_conds = [
+	{ if = "dir & hovered", text = "", fg = "#6cb6eb" },
+	{ if = "dir", text = "", fg = "#6cb6eb" },
+]
+
+prepend_dirs = [
+	{ name = ".config", text = "", fg = "#6cb6eb" },
+	{ name = ".git", text = "", fg = "#6cb6eb" },
+	{ name = ".github", text = "", fg = "#6cb6eb" },
+	{ name = ".npm", text = "", fg = "#6cb6eb" },
+	{ name = "Desktop", text = "", fg = "#6cb6eb" },
+	{ name = "Development", text = "", fg = "#6cb6eb" },
+	{ name = "Documents", text = "", fg = "#6cb6eb" },
+	{ name = "Downloads", text = "", fg = "#6cb6eb" },
+	{ name = "Library", text = "", fg = "#6cb6eb" },
+	{ name = "Movies", text = "", fg = "#6cb6eb" },
+	{ name = "Music", text = "", fg = "#6cb6eb" },
+	{ name = "Pictures", text = "", fg = "#6cb6eb" },
+	{ name = "Public", text = "", fg = "#6cb6eb" },
+	{ name = "Videos", text = "", fg = "#6cb6eb" },
+]
+
+
+# Plugins
+
+[git]
+unstaged = { fg = "#6cb6eb" }
+staged = { fg = "#6cb6eb" }
+added = { fg = "#a0c980" }
+untracked = { fg = "#3b3e48" }
+ignored = { fg = "#3b3e48" }
+deleted = { fg = "#ec7279" }
+
+# Unmerged
+updated = { fg = "#d38aea" }
